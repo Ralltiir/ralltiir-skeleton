@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "module": "amd",
+    "moduleResolution": "node",
+    "outDir": "dist",
+    "target": "es5",
+    "sourceMap": true,
+    "skipDefaultLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    // "noImplicitAny": true,
+    "strictNullChecks": true
+  },
+  "include": [ "src/**/*.*", "src/**/*.jsx"],
+  "exclude": []
+}
