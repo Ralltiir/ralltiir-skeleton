@@ -2,7 +2,7 @@
  * @Author: qiansc
  * @Date: 2018-12-06 16:04:08
  * @Last Modified by: qiansc
- * @Last Modified time: 2018-12-10 13:40:57
+ * @Last Modified time: 2018-12-11 16:02:09
  */
 /**
  * skeleton的生命周期 init > create [> pause] [> resume] > destroy
@@ -75,16 +75,17 @@ export class Skeleton {
   private initContent() {
     const offset = this.offset();
     this.target.className = TargetClass;
-    this.target.style.position = "absolute";
+    this.target.style.position = this.options.isFixed ? "fixed" : "absolute";
     this.target.style.width = "100%";
     this.target.style.top = (this.options.isFixed ? offset.y + "px" : 0).toString();
     this.target.style.left = "0";
     if (this.options.background) {
       this.target.style.background = this.options.background;
     }
+    this.target.style.zIndex = (this.options.zIndex || "101").toString();
     if (this.options.fadeOut) {
-      const duration = (this.options.fadeOutDuration || 400) / 1000;
-      this.target.style.transition = `opacity ${duration}s linear`;
+      const duration = (this.options.fadeOutDuration || 350) / 1000;
+      this.target.style.transition = `opacity ${duration}s ease-in-out`;
       const style = document.createElement("style");
       // child 元素快速隐藏 避免重叠
       style.innerHTML = ".sk-fadeout{opacity: 0;} .sk-fadeout > * {transition: opacity 0.1s linear; opacity: 0;}";
@@ -109,7 +110,7 @@ export class Skeleton {
       if (this.destroying) {
         this.destried = true;
         this.destroying = false;
-        if (this.options.fadeOut) {
+        if (this.target && this.options.fadeOut) {
           this.target.className += " sk-fadeout";
           this.target.addEventListener("transitionend", () => {
             this.app.destroy();
@@ -135,8 +136,8 @@ export class Skeleton {
     if (this.options.isOffset && this.container && this.container.getBoundingClientRect) {
       const rect = this.container.getBoundingClientRect();
       return {
-        x: rect.left,
-        y: rect.top,
+        x: this.options.offsetX ? this.options.offsetX : rect.left,
+        y: this.options.offsetY ? this.options.offsetY : rect.top,
       };
     }
     return {x: 0, y: 0};
@@ -145,14 +146,28 @@ export class Skeleton {
 
 interface TabSkeletonOption {
   timeout?: number;
+  /** 是否要根据父级元素计算偏移 */
   isOffset?: boolean;
+  /** 是否置为fixed元素 */
   isFixed?: boolean;
+  /** skeleton X轴偏移 不存在则自行根据父容器计算 */
+  offsetX?: number;
+  /** skeleton Y轴偏移 不存在则自行根据父容器计算 */
+  offsetY?: number;
+  /** 入场渐显 */
   fadeIn?: boolean;
+  /** 入场持续时间 */
   fadeInDuration?: number;
+  /** 退场渐隐 */
   fadeOut?: boolean;
+  /** 退场渐隐 */
   fadeOutDuration?: number;
-  /** default true */
+  /** skeleton高度超出屏幕 default true */
   fullScreen?: boolean;
+  /** skeleton高度超出屏幕举例 default 100 */
   fullScreenBuffer?: number;
+  /** 背景色 */
   background?: string;
+  /** default 101 */
+  zIndex?: number;
 }
