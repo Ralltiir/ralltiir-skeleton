@@ -2,7 +2,7 @@
  * @Author: qiansc
  * @Date: 2018-12-06 16:04:08
  * @Last Modified by: qiansc
- * @Last Modified time: 2018-12-11 16:02:09
+ * @Last Modified time: 2018-12-13 14:38:23
  */
 /**
  * skeleton的生命周期 init > create [> pause] [> resume] > destroy
@@ -112,7 +112,7 @@ export class Skeleton {
         this.destroying = false;
         if (this.target && this.options.fadeOut) {
           this.target.className += " sk-fadeout";
-          this.target.addEventListener("transitionend", () => {
+          this.target.addEventListener("transitionEnd", () => {
             this.app.destroy();
             this.removeTarget();
           });
