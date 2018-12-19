@@ -2,7 +2,7 @@
  * @Author: qiansc
  * @Date: 2018-12-06 16:04:08
  * @Last Modified by: qiansc
- * @Last Modified time: 2018-12-13 14:38:23
+ * @Last Modified time: 2018-12-19 10:44:53
  */
 /**
  * skeleton的生命周期 init > create [> pause] [> resume] > destroy
@@ -11,6 +11,7 @@
  */
 import { SkeletonAppearance } from "./appearance";
 const TargetClass = "rt-skeleton";
+let SupportTransitionEvent = false;
 
 export class Skeleton {
   private created = false;
@@ -112,10 +113,20 @@ export class Skeleton {
         this.destroying = false;
         if (this.target && this.options.fadeOut) {
           this.target.className += " sk-fadeout";
-          this.target.addEventListener("transitionEnd", () => {
+          this.target.addEventListener("transitionend", () => {
+            SupportTransitionEvent = true;
             this.app.destroy();
             this.removeTarget();
           });
+          if (!SupportTransitionEvent) {
+            // 未确认支持TransitionEvent时使用setTimeout兜底移除
+            setTimeout(
+              () => {
+                this.removeTarget();
+              },
+              (this.options.fadeOutDuration || 350) + 200,
+            );
+          }
         } else {
           this.app.destroy();
           this.removeTarget();
