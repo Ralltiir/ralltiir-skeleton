@@ -2,7 +2,7 @@
  * @Author: qiansc
  * @Date: 2018-12-06 16:04:08
  * @Last Modified by: qiansc
- * @Last Modified time: 2018-12-19 10:44:53
+ * @Last Modified time: 2018-12-20 10:36:24
  */
 /**
  * skeleton的生命周期 init > create [> pause] [> resume] > destroy
@@ -36,7 +36,7 @@ export class Skeleton {
       this.options.fullScreenBuffer = 100;
     }
   }
-
+  /** 创建Skeleton */
   public create(): void {
     if (this.created) {
       return;
@@ -56,7 +56,7 @@ export class Skeleton {
     });
     this.startTimeout();
   }
-
+  /** 销毁Skeleton */
   public destroy(): void {
     if (this.destried) {
       return;
@@ -65,10 +65,12 @@ export class Skeleton {
     this.tryDestroy();
   }
 
+  /** 暂停Skeleton的生命周期变化 */
   public pause(): void {
     this.paused = true;
   }
 
+  /** 恢复Skeleton的生命周期变化 */
   public resume(): void {
     this.paused = false;
     this.tryDestroy();

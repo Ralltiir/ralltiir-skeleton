@@ -922,6 +922,9 @@ img { max-width: 100%; }
 			<a href="interfaces/tabskeletonoption.html" class="tsd-kind-icon">Tab<wbr>Skeleton<wbr>Option</a>
 		</li>
 		<li class=" tsd-kind-variable tsd-is-not-exported">
+			<a href="globals.html#supporttransitionevent" class="tsd-kind-icon">Support<wbr>Transition<wbr>Event</a>
+		</li>
+		<li class=" tsd-kind-variable tsd-is-not-exported">
 			<a href="globals.html#targetclass" class="tsd-kind-icon">Target<wbr>Class</a>
 		</li>
 	</ul>
@@ -931,12 +934,61 @@ img { max-width: 100%; }
 		<div class="tsd-panel tsd-typography">
 			<h1 id="ralltiir-skeleton">Ralltiir Skeleton</h1>
 			<p><img src="https://img.shields.io/badge/-TypeScript-blue.svg" alt="Language">
-				<a href="https://travis-ci.org/ralltiir/ralltiir-skeleton"><img src="https://travis-ci.org/ralltiir/ralltiir-skeleton.svg?branch=master" alt="Build Status"></a>
-				<a href="https://coveralls.io/github/ralltiir/ralltiir-skeleton"><img src="https://img.shields.io/coveralls/ralltiir/ralltiir-skeleton.svg" alt="Coveralls"></a>
+				<a href="https://travis-ci.org/ralltiir/ralltiir-skeleton"><img src="https://travis-ci.org/Ralltiir/ralltiir-skeleton.svg?branch=master" alt="Build Status"></a>
+				<a href="https://coveralls.io/github/ralltiir/ralltiir-skeleton"><img src="https://img.shields.io/coveralls/Ralltiir/ralltiir-skeleton.svg" alt="Coveralls"></a>
 				<a href="https://www.npmjs.org/package/ralltiir-skeleton"><img src="https://img.shields.io/npm/v/ralltiir-skeleton.svg" alt="npm package"></a>
 			<a href="https://www.npmjs.org/package/ralltiir-skeleton"><img src="http://img.shields.io/npm/dm/ralltiir-skeleton.svg" alt="npm downloads"></a></p>
 			<h1 id="what-s-ralltiir-skeleton">What&#39;s ralltiir-skeleton</h1>
-			<p>Ralltiir/ralltiir-skeleton</p>
+			<p>骨架屏（skeleton）的作用主要是在网络请求较慢时，提供基础占位，当数据加载完成，恢复数据展示。这样给用户一种很自然的过渡，不会造成页面长时间白屏或者闪烁等情况。</p>
+			<p>ralltiir-skeleton主要向整页或基于ralltiir实现的页面提供渲染骨架屏的机制，ralltiir-skeleton包含skeleton基类及skeleton内部实现的接口appearance。</p>
+			<ul>
+				<li><p><strong>skeleton</strong></p>
+					<ul>
+						<li>实现生命周期，提供钩子方法</li>
+						<li>提供各种可选参数，以满足skeleton实现各种效果，如渐显隐、容器fixed（以实现动画）、内部元素偏移（以实现居中）</li>
+						<li>调用实现appearance接口的组件渲染/销毁内部样貌</li>
+					</ul>
+				</li>
+				<li><p><strong>appearance</strong></p>
+					<ul>
+						<li>在skeleton容器内实现渲染的接口，其会接口方法被skeleton在生命周期合适的时机调用</li>
+					</ul>
+				</li>
+			</ul>
+			<h1 id="usage">Usage</h1>
+			<pre><code class="language-javascript">
+<span class="hljs-keyword">var</span> appearance = <span class="hljs-keyword">new</span> LoadingAppearance({<span class="hljs-attr">toplight</span>: <span class="hljs-literal">true</span>});
+
+<span class="hljs-keyword">var</span> skeleton = <span class="hljs-keyword">new</span> Skeleton.Skeleton(container, appearance, {
+  <span class="hljs-attr">background</span>: <span class="hljs-string">"#FFF"</span>
+  ,<span class="hljs-attr">fadeOut</span>: <span class="hljs-literal">true</span>
+  ,<span class="hljs-attr">fadeOutDuration</span>: <span class="hljs-number">400</span>
+  ,<span class="hljs-attr">isOffset</span>: <span class="hljs-literal">true</span>
+  ,<span class="hljs-attr">isFixed</span>: <span class="hljs-literal">true</span>
+});
+
+skeleton.create();
+skeleton.destroy();
+</code></pre>
+			<h1 id="appearance-component">Appearance Component</h1>
+			<p>目前已经提供2类Appearance组件：</p>
+			<ul>
+				<li><a href="https://github.com/Ralltiir/ralltiir-skeleton-loading">ralltiir-skeleton-loading</a><ul>
+						<li>主要实现居中效果的loading态</li>
+						<li><a href="https://ralltiir.github.io/ralltiir-skeleton-loading/demo/">Demo</a></li>
+					</ul>
+				</li>
+				<li><a href="https://github.com/Ralltiir/ralltiir-skeleton-tombstone">ralltiir-skeleton-tombstone</a><ul>
+						<li>主要实现骨骼屏效果</li>
+						<li><a href="https://ralltiir.github.io/ralltiir-skeleton-tombstone/demo/">Demo</a></li>
+					</ul>
+				</li>
+			</ul>
+			<h1 id="-ralltiir-ralltiir-skeleton">在ralltiir页面中使用ralltiir-skeleton</h1>
+			<ul>
+				<li>方式一：在ralltiir view的生命周期方法里直接创建/销毁ralltiir-skeleton</li>
+				<li>方式二：（开发中）通过注册方式提前声明ralltiir service对应的ralltiir-skeleton效果</li>
+			</ul>
 		</div>
 		<div style="position:relative;"><a name="typedoc-main-index" class="tsd-anchor"></a></div>
 		<section class="tsd-panel-group tsd-index-group">
@@ -960,6 +1012,7 @@ img { max-width: 100%; }
 					<section class="tsd-index-section tsd-is-not-exported">
 						<h3>Variables</h3>
 						<ul class="tsd-index-list">
+							<li class="tsd-kind-variable tsd-is-not-exported"><a href="globals.html#supporttransitionevent" class="tsd-kind-icon">Support<wbr>Transition<wbr>Event</a></li>
 							<li class="tsd-kind-variable tsd-is-not-exported"><a href="globals.html#targetclass" class="tsd-kind-icon">Target<wbr>Class</a></li>
 						</ul>
 					</section>
@@ -968,6 +1021,16 @@ img { max-width: 100%; }
 		</section>
 		<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
 			<h2>Variables</h2>
+			<section class="tsd-panel tsd-member tsd-kind-variable tsd-is-not-exported">
+				<a name="supporttransitionevent" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagLet">Let</span> Support<wbr>Transition<wbr>Event</h3>
+				<div class="tsd-signature tsd-kind-icon">Support<wbr>Transition<wbr>Event<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in skeleton.ts:14</li>
+					</ul>
+				</aside>
+			</section>
 			<section class="tsd-panel tsd-member tsd-kind-variable tsd-is-not-exported">
 				<a name="targetclass" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagConst">Const</span> Target<wbr>Class</h3>
