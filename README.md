@@ -1,7 +1,7 @@
 # Ralltiir Skeleton
 ![Language](https://img.shields.io/badge/-TypeScript-blue.svg)
-[![Build Status](https://travis-ci.org/Ralltiir/ralltiir-skeleton.svg?branch=master)](https://travis-ci.org/ralltiir/ralltiir-skeleton)
-[![Coveralls](https://img.shields.io/coveralls/Ralltiir/ralltiir-skeleton.svg)](https://coveralls.io/github/ralltiir/ralltiir-skeleton)
+[![Build Status](https://travis-ci.org/Ralltiir/ralltiir-skeleton.svg?branch=master)](https://travis-ci.org/Ralltiir/ralltiir-skeleton)
+[![Coveralls](https://img.shields.io/coveralls/Ralltiir/ralltiir-skeleton.svg)](https://coveralls.io/github/Ralltiir/ralltiir-skeleton)
 [![npm package](https://img.shields.io/npm/v/ralltiir-skeleton.svg)](https://www.npmjs.org/package/ralltiir-skeleton)
 [![npm downloads](http://img.shields.io/npm/dm/ralltiir-skeleton.svg)](https://www.npmjs.org/package/ralltiir-skeleton)
 
@@ -17,6 +17,8 @@ ralltiir-skeleton主要向整页或基于ralltiir实现的页面提供渲染骨�
 
 - **appearance**
   - 在skeleton容器内实现渲染的接口，其会接口方法被skeleton在生命周期合适的时机调用
+
+- [API](https://ralltiir.github.io/ralltiir-skeleton/)
 
 # Usage
 
