@@ -47,7 +47,7 @@ skeleton.destroy();
   - 主要实现居中效果的loading态
   - [Demo](https://ralltiir.github.io/ralltiir-skeleton-loading/demo/)
 - [ralltiir-skeleton-tombstone](https://github.com/Ralltiir/ralltiir-skeleton-tombstone)
-  - 主要实现骨骼屏效果
+  - 主要实现骨架屏效果
   - [Demo](https://ralltiir.github.io/ralltiir-skeleton-tombstone/demo/)
 
 # 在ralltiir页面中使用ralltiir-skeleton
