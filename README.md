@@ -12,7 +12,7 @@ ralltiir-skeleton主要向整页或基于ralltiir实现的页面提供渲染骨�
 
 - **skeleton**
   - 实现生命周期，提供钩子方法
-  - 提供各种可选参数，以满足skeleton实现各种效果，如渐显隐、容器fixed（以实现动画）、内部元素偏移（以实现居中）
+  - 提供各种[可选参数](https://ralltiir.github.io/ralltiir-skeleton/interfaces/tabskeletonoption.html)，以满足skeleton实现各种效果，如渐显隐、容器fixed（以实现动画）、内部元素偏移（以实现居中）
   - 调用实现appearance接口的组件渲染/销毁内部样貌
 
 - **appearance**
