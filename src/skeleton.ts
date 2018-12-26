@@ -2,7 +2,7 @@
  * @Author: qiansc
  * @Date: 2018-12-06 16:04:08
  * @Last Modified by: qiansc
- * @Last Modified time: 2018-12-20 10:36:24
+ * @Last Modified time: 2018-12-26 11:28:04
  */
 /**
  * skeleton的生命周期 init > create [> pause] [> resume] > destroy
@@ -141,9 +141,10 @@ export class Skeleton {
       this.container.removeChild(this.target);
     }
     const old = this.container.querySelectorAll(`.${TargetClass}`);
-    old.forEach((item) => {
+    // NodeListOf May not have forEach function in some browser
+    for (const item of old as any) {
       this.container.removeChild(item);
-    });
+    }
   }
   private offset() {
     if (this.options.isOffset && this.container && this.container.getBoundingClientRect) {
