@@ -2,7 +2,7 @@
  * @Author: qiansc
  * @Date: 2018-12-06 16:04:08
  * @Last Modified by: qiansc
- * @Last Modified time: 2018-12-26 11:28:04
+ * @Last Modified time: 2018-12-26 13:33:19
  */
 /**
  * skeleton的生命周期 init > create [> pause] [> resume] > destroy
@@ -139,6 +139,7 @@ export class Skeleton {
   private removeTarget() {
     if (this.target) {
       this.container.removeChild(this.target);
+      delete this.target;
     }
     const old = this.container.querySelectorAll(`.${TargetClass}`);
     // NodeListOf May not have forEach function in some browser
