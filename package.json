@@ -1,6 +1,6 @@
 {
   "name": "ralltiir-skeleton",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "discription": "Ralltiir Skeleton",
   "scripts": {
     "preversion": "tsc && npm run lint && npm run cover",
