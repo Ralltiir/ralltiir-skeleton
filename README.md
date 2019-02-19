@@ -1,7 +1,6 @@
 # Ralltiir Skeleton
 ![Language](https://img.shields.io/badge/-TypeScript-blue.svg)
 [![Build Status](https://travis-ci.org/Ralltiir/ralltiir-skeleton.svg?branch=master)](https://travis-ci.org/Ralltiir/ralltiir-skeleton)
-[![Coveralls](https://img.shields.io/coveralls/Ralltiir/ralltiir-skeleton.svg)](https://coveralls.io/github/Ralltiir/ralltiir-skeleton)
 [![npm package](https://img.shields.io/npm/v/ralltiir-skeleton.svg)](https://www.npmjs.org/package/ralltiir-skeleton)
 [![npm downloads](http://img.shields.io/npm/dm/ralltiir-skeleton.svg)](https://www.npmjs.org/package/ralltiir-skeleton)
 
