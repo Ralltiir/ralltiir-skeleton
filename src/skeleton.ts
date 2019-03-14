@@ -2,7 +2,7 @@
  * @Author: qiansc
  * @Date: 2018-12-06 16:04:08
  * @Last Modified by: qiansc
- * @Last Modified time: 2018-12-26 13:33:19
+ * @Last Modified time: 2019-03-14 15:29:02
  */
 /**
  * skeleton的生命周期 init > create [> pause] [> resume] > destroy
@@ -99,6 +99,10 @@ export class Skeleton {
        || document.body.clientHeight) - offset.y + (this.options.fullScreenBuffer || 0);
       this.target.style.height = height + "px";
     }
+    this.target.ontouchstart = (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+    };
   }
   // 兜底销毁
   private startTimeout(): void {
